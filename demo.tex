@@ -1,0 +1,48 @@
+%!TEX program = xelatex
+%!TEX encoding = UTF-8 Unicode
+\documentclass[b5paper,11pt]{report}
+
+% KNU thesis package
+\usepackage{knu}
+
+% required
+\title{Final Dissertation Title}
+\author{Hong Gildong}
+\advisor{your supervisor}
+\major{School of Computer Science and Engineering}
+
+\ktitle{최종 논문 제목}
+\kauthor{홍 길 동}
+\kadvisor{지도교수님 성함}
+\kmajor{컴퓨터학부}
+
+% degree date by month and year
+\degreedate{June}{2015}
+
+\begin{document}
+
+% create title page
+\maketitlepage
+% create approval page
+\makeapprovalpage
+
+% set page number style as Roman for TOC
+\pagenumbering{roman}
+% create table of contents
+\tableofcontents
+
+% set page number style as Arabic, reset page counter as 1
+\clearpage\pagenumbering{arabic}\setcounter{page}{1}
+
+% set line spacing
+\setstretch{1.5}
+
+\chapter{Introduction}
+
+본문은 여기에 작성합니다.
+
+\clearpage
+% Korean abstract must be written in abstractkor.tex file
+\makeabstractpage
+
+\end{document}
