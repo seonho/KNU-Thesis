@@ -15,17 +15,14 @@
 \usepackage{graphicx}
 % set default figure path
 \graphicspath{{./fig/}}
-% \usepackage{subfigure}
 
 % 논문제목, 저자정보 등
 \InputIfFileExists{author.tex}{}{\message{LaTeX Warning: Author information should be written in 'author.tex'.}}
 
-% \usepackage{bookmark}
 \usepackage[
 pdfencoding=auto,
 psdextra,
-pdfauthor={\@author},
-pdftitle={\@title},
+pdfusetitle,
 colorlinks,
 linkcolor=black
 ]{hyperref}
@@ -35,7 +32,6 @@ linkcolor=black
 \usepackage{algorithmic}
 
 \usepackage{nth} % nth
-% \usepackage{subfig, caption}
 
 \chapterstyle{madsen}
 
