@@ -1,0 +1,109 @@
+%!TEX encoding = UTF-8 Unicode
+%!TEX program = xelatex
+
+\documentclass[b5paper,11pt,oneside,openany,article,no-math]{memoir}
+
+\usepackage{knuthesis}
+\setmainfont{Times New Roman} % 기본 글꼴 설정
+
+\usepackage{amsmath, amssymb} % 수식 조판
+
+% 표를 만드는 패키지
+\usepackage{tabu,multirow,booktabs}
+
+% use graphics package
+\usepackage{graphicx}
+% set default figure path
+\graphicspath{{./fig/}}
+% \usepackage{subfigure}
+
+% 논문제목, 저자정보 등
+\InputIfFileExists{author.tex}{}{\message{LaTeX Warning: Author information should be written in 'author.tex'.}}
+
+% \usepackage{bookmark}
+\usepackage[
+pdfencoding=auto,
+psdextra,
+pdfauthor={\@author},
+pdftitle={\@title},
+colorlinks,
+linkcolor=black
+]{hyperref}
+\usepackage{bookmark}
+
+\usepackage{algorithm2e}
+\usepackage{algorithmic}
+
+\usepackage{nth} % nth
+% \usepackage{subfig, caption}
+
+\chapterstyle{madsen}
+
+\newsubfloat{figure}% Allow subfloats in figure environment
+
+\makeatletter
+% make the figure name and number bold:
+\renewcommand{\fnum@figure}{\textbf{\figurename~\thefigure}}
+% for section
+\renewcommand{\sectionrefname}{Section}
+\newcommand{\sref}[1]{\sectionrefname~\ref{#1}}
+\newcommand{\cref}[1]{\Cref{#1}}
+\newcommand{\aref}[1]{\appendixname~\ref{#1}}
+\makeatother
+
+\begin{document}
+
+\frontmatter
+
+% 표지
+\maketitle
+% 인준서
+\makeapproval
+
+\setcounter{page}{1}
+
+% 목차 생성
+\clearpage
+\tableofcontents*
+% 그림 목차 생성
+\clearpage
+\listoffigures*
+% 표 목차 생성
+\clearpage
+\listoftables*
+
+\hypersetup{linkcolor=red}
+\mainmatter
+
+% 본문 줄간격 지정
+\setstretch{1.5}
+
+\clearpage
+\chapter{Introduction}
+
+This is a demonstration of KNU thesis template~\cite{knuthesis2015}.
+
+\clearpage
+\chapter{Related Work}
+
+\clearpage
+\chapter{Conclusion}
+% \include{tex/ch1}
+% \include{tex/ch2}
+% \include{tex/ch3}
+% \include{tex/ch4}
+% \include{tex/ch5}
+% \include{tex/ch6}
+
+\clearpage
+\appendix
+% \include{tex/appa} % appendix
+
+\backmatter
+\bibliographystyle{IEEEtran}
+\bibliography{thesis}
+
+\clearpage
+\makekorabstract{\InputIfFileExists{tex/abstractkor.tex}{}{tex/abstractkor.tex를 읽어옵니다.}}
+
+\end{document}
