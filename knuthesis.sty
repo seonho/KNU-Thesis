@@ -42,12 +42,13 @@
 % 글꼴 설정
 \ifxetex
 \defaultfontfeatures{Mapping=tex-text}
-\setmainhangulfont{BatangChe}
+\setmainhangulfont{BatangChe} % 한글 기본 글꼴은 바탕체
+\setsanshangulfont{Malgun Gothic} % 한글 고딕 글꼴은 맑은 고딕
 \fi
 
 \renewcommand{\maketitle}{
 	\thispagestyle{empty}
-	\newgeometry{left=2cm,top=3cm,right=2cm,bottom=2cm}
+	\newgeometry{left=2cm,top=2.5cm,right=2cm,bottom=1.5cm}
 	\setstretch{1.3}
 	\begin{center}
 		% space at least 3cm
@@ -72,7 +73,7 @@
 		% 12pt 바탕, 굵게, 1학기 June, 2학기 December
 		{\fontsize{12pt}{1pt}\selectfont \noindent \textbf{\@degreedate}}\\
 		% space at least 1cm
-		\vspace{1cm}
+		\vspace{\fill}
 		% 16 pt 맑은 고딕, 굵게
 		{\fontspec{Malgun Gothic}\fontsize{16pt}{1pt}\selectfont \textbf{The Graduate School\\Kyungpook National University}}\\
 		% space at least 2cm
@@ -84,7 +85,7 @@
 
 \newcommand{\makeapproval}{
 	\thispagestyle{empty}
-	\newgeometry{top=3cm,bottom=2cm}
+	\newgeometry{top=2.5cm,bottom=1.5cm}
 	\setstretch{1.3}
 	\begin{center}
 		% space at least 3cm
@@ -112,7 +113,7 @@
 		% space at least 1cm
 		\vspace{0.5cm}
 		% Refree
-		\setlength{\tabulinesep}{12pt}
+		\setlength{\tabulinesep}{16pt}
 		\begin{table*}[!h]
 			\begin{tabu}{X[1, c] X[1, r] X[1.5, c]}
 			& {\fontsize{12pt}{24pt}\selectfont \textbf{Chairman}} & \underline{\hspace{\linewidth}}\\
@@ -146,12 +147,12 @@
 	% space at least 3cm
 	% \vspace*{3cm}
 	% 12pt 고딕, 제목이 길 경우 두줄 이상 가능
-	{\hangulfontspec{Malgun Gothic} \fontsize{12pt}{1pt}\selectfont \textbf{\@ktitle}}\\
+	{\fontsize{12pt}{1pt}\selectfont \textsf{\textbf{\@ktitle}}}\\
 	% space at least 1cm
 	\vspace{1cm}
 	% 10pt 고딕, 성과 이름은 띄어쓰고 이름의 각 음절은 붙여 씀
 	% 예) Hong Gildong 또는 Hong Gil-dong
-	{\hangulfontspec{Malgun Gothic} \fontsize{10pt}{1pt}\selectfont \textbf{\@kauthor}}\\
+	{\fontsize{10pt}{1pt}\selectfont \textsf{\textbf{\@kauthor}}}\\
 	% space at least 1cm
 	\vspace{1cm}
 	% 9pt 바탕체

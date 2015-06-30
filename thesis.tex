@@ -2,6 +2,7 @@
 %!TEX program = xelatex
 
 \documentclass[b5paper,11pt,oneside,openany,article,no-math]{memoir}
+\setsecnumdepth{subsection} % enable subsection numbering
 
 \usepackage{knuthesis}
 \setmainfont{Times New Roman} % 기본 글꼴 설정
@@ -33,6 +34,8 @@ linkcolor=black
 
 \usepackage{nth} % nth
 
+\usepackage{cite}
+
 \chapterstyle{madsen}
 
 \newsubfloat{figure}% Allow subfloats in figure environment
@@ -45,7 +48,23 @@ linkcolor=black
 \newcommand{\sref}[1]{\sectionrefname~\ref{#1}}
 \newcommand{\cref}[1]{\Cref{#1}}
 \newcommand{\aref}[1]{\appendixname~\ref{#1}}
+\newcommand{\alref}[1]{Algorithm~\ref{#1}}
 \makeatother
+
+\renewcommand{\algorithmicrequire}{\textbf{Input:}}
+\renewcommand{\algorithmicensure}{\textbf{Output:}}
+
+\newcommand\Algphase[1]{%
+\vspace*{-.7\baselineskip}\Statex\hspace*{\dimexpr-\algorithmicindent-2pt\relax}%
+\Statex\hspace*{-\algorithmicindent}\textbf{#1}%
+\vspace*{-.7\baselineskip}\Statex\hspace*{\dimexpr-\algorithmicindent-2pt\relax}%
+}
+
+\newcommand\Algsubphase[1]{%
+% \vspace*{-.7\baselineskip}\Statex\hspace*{\dimexpr-\algorithmicindent-2pt\relax}%
+\Statex\hspace*{-\algorithmicindent}\textbf{\small #1}%
+% \vspace*{-.7\baselineskip}\Statex\hspace*{\dimexpr-\algorithmicindent-2pt\relax}%
+}
 
 \begin{document}
 
