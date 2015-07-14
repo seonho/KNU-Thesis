@@ -7,10 +7,10 @@
 \usepackage{knuthesis}
 \setmainfont{Times New Roman} % 기본 글꼴 설정
 
-\usepackage{amsmath, amssymb} % 수식 조판
+\usepackage{amsmath, amssymb, mathrsfs} % 수식 조판
 
 % 표를 만드는 패키지
-\usepackage{tabu,multirow,booktabs}
+\usepackage{tabu,longtable,multirow,multicol,booktabs}
 
 % use graphics package
 \usepackage{graphicx}
@@ -20,6 +20,7 @@
 % 논문제목, 저자정보 등
 \InputIfFileExists{author.tex}{}{\message{LaTeX Warning: Author information should be written in 'author.tex'.}}
 
+% 하이퍼 링크 설정
 \usepackage[
 pdfencoding=auto,
 psdextra,
@@ -27,15 +28,18 @@ pdfusetitle,
 colorlinks,
 linkcolor=black
 ]{hyperref}
+% 출력시에는 아래 줄을 주석 해제하자.
+% \usepackage[hidelinks]{hyperref}
 \usepackage{bookmark}
 
-\usepackage{algorithm2e}
-\usepackage{algorithmic}
+% 알고리즘 관련 패키지
+\usepackage{algorithm2e, algorithmic}
 
-\usepackage{nth} % nth
+\usepackage[super]{nth} % nth
 
-\usepackage{cite}
+\usepackage{cite} % citation
 
+% 챕터 스타일 지정
 \chapterstyle{madsen}
 
 \newsubfloat{figure}% Allow subfloats in figure environment
@@ -87,7 +91,10 @@ linkcolor=black
 \clearpage
 \listoftables*
 
+% 출력시에는 아래 줄을 주석 처리하자.
 \hypersetup{linkcolor=red}
+
+% 본문 시작
 \mainmatter
 
 % 본문 줄간격 지정
@@ -119,6 +126,7 @@ This is a demonstration of KNU thesis template~\cite{knuthesis2015}.
 \bibliography{thesis}
 
 \clearpage
+\addcontentsline{toc}{chapter}{Abstract} % TOC에 목차 추가
 \makekorabstract{\InputIfFileExists{tex/abstractkor.tex}{}{tex/abstractkor.tex를 읽어옵니다.}}
 
 \end{document}
